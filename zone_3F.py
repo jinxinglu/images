@@ -10,8 +10,8 @@ WINHEIGHT = 600
 HALF_WINWIDTH = int(WINWIDTH / 2)
 HALF_WINHEIGHT = int(WINHEIGHT / 2)
 
-TILEWIDTH = 6
-TILEHEIGHT = 12
+TILEWIDTH = 5
+TILEHEIGHT = 8
 
 FPS = 30 # frames per second to update the screen
 BRIGHTBLUE = (  0, 170, 255)
@@ -47,28 +47,28 @@ def main():
 
     # A global dict value that will contain all the Pygame
     # Surface objects returned by pygame.image.load().
-    IMAGESDICT = {'title': pygame.image.load('images6x12/title.png'),
-                  'lots': pygame.image.load('images6x12/6x12_lot.png'),
-                  'floor': pygame.image.load('images6x12/6x12_floor.png'),
-                  'lots_1_ss': pygame.image.load('images6x12/6x12_lot_1_ss.png'),
-                  'lots_2_ss': pygame.image.load('images6x12/6x12_lot_2_ss.png'),
-                  'lots_3_ss': pygame.image.load('images6x12/6x12_lot_3_ss.png'),
-                  'lots_4_ss': pygame.image.load('images6x12/6x12_lot_4_ss.png'),
-                  'lots_5_ss': pygame.image.load('images6x12/6x12_lot_5_ss.png'),
-                  'lots_1_batched': pygame.image.load('images6x12/6x12_lot_1_batched.png'),
-                  'lots_2_batched': pygame.image.load('images6x12/6x12_lot_2_batched.png'),
-                  'lots_3_batched': pygame.image.load('images6x12/6x12_lot_3_batched.png'),
-                  'lots_4_batched': pygame.image.load('images6x12/6x12_lot_4_batched.png'),
-                  'lots_5_batched': pygame.image.load('images6x12/6x12_lot_5_batched.png'),
-                  'path_L_U_D': pygame.image.load('images/path_1.png'),
-                  'path_L_D': pygame.image.load('images/path_2.png'),
-                  'path_R_D': pygame.image.load('images/path_3.png'),
-                  'path_L_U': pygame.image.load('images/path_4.png'),
-                  'path_R_U': pygame.image.load('images/path_5.png'),
-                  'path_R_U_D': pygame.image.load('images/path_6.png'),
-                  'path_L_R_D': pygame.image.load('images/path_7.png'),
-                  'path_L_R_U': pygame.image.load('images/path_8.png'),
-                  'path_L_R_U_D': pygame.image.load('images/path_9.png'),
+    IMAGESDICT = {'title': pygame.image.load('title.png'),
+                  'lots': pygame.image.load('5x8_lot.png'),
+                  'floor': pygame.image.load('5x8_floor.png'),
+                  'lots_1_ss': pygame.image.load('5x8_lot_1_ss.png'),
+                  'lots_2_ss': pygame.image.load('5x8_lot_2_ss.png'),
+                  'lots_3_ss': pygame.image.load('5x8_lot_3_ss.png'),
+                  'lots_4_ss': pygame.image.load('5x8_lot_4_ss.png'),
+                  'lots_5_ss': pygame.image.load('5x8_lot_5_ss.png'),
+                  'lots_1_batched': pygame.image.load('5x8_lot_1_batched.png'),
+                  'lots_2_batched': pygame.image.load('5x8_lot_2_batched.png'),
+                  'lots_3_batched': pygame.image.load('5x8_lot_3_batched.png'),
+                  'lots_4_batched': pygame.image.load('5x8_lot_4_batched.png'),
+                  'lots_5_batched': pygame.image.load('5x8_lot_5_batched.png'),
+                  # 'path_L_U_D': pygame.image.load('path_1.png'),
+                  # 'path_L_D': pygame.image.load('path_2.png'),
+                  # 'path_R_D': pygame.image.load('path_3.png'),
+                  # 'path_L_U': pygame.image.load('path_4.png'),
+                  # 'path_R_U': pygame.image.load('path_5.png'),
+                  # 'path_R_U_D': pygame.image.load('path_6.png'),
+                  # 'path_L_R_D': pygame.image.load('path_7.png'),
+                  # 'path_L_R_U': pygame.image.load('path_8.png'),
+                  # 'path_L_R_U_D': pygame.image.load('path_9.png'),
                  }
 
     # These dict values are global, and map the character that appears
