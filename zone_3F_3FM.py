@@ -49,19 +49,19 @@ def main():
 
     # A global dict value that will contain all the Pygame
     # Surface objects returned by pygame.image.load().
-    IMAGESDICT = {'title': pygame.image.load('title.png'),
-                  'lots': pygame.image.load('5x8_lot.png'),
-                  'floor': pygame.image.load('5x8_floor.png'),
-                  'lots_1_ss': pygame.image.load('5x8_lot_1_ss.png'),
-                  'lots_2_ss': pygame.image.load('5x8_lot_2_ss.png'),
-                  'lots_3_ss': pygame.image.load('5x8_lot_3_ss.png'),
-                  'lots_4_ss': pygame.image.load('5x8_lot_4_ss.png'),
-                  'lots_5_ss': pygame.image.load('5x8_lot_5_ss.png'),
-                  'lots_1_batched': pygame.image.load('5x8_lot_1_batched.png'),
-                  'lots_2_batched': pygame.image.load('5x8_lot_2_batched.png'),
-                  'lots_3_batched': pygame.image.load('5x8_lot_3_batched.png'),
-                  'lots_4_batched': pygame.image.load('5x8_lot_4_batched.png'),
-                  'lots_5_batched': pygame.image.load('5x8_lot_5_batched.png'),
+    IMAGESDICT = {'title': pygame.image.load('images5x8/title.png'),
+                  'lots': pygame.image.load('images5x8/5x8_lot.png'),
+                  'floor': pygame.image.load('images5x8/5x8_floor.png'),
+                  'lots_1_ss': pygame.image.load('images5x8/5x8_lot_1_ss.png'),
+                  'lots_2_ss': pygame.image.load('images5x8/5x8_lot_2_ss.png'),
+                  'lots_3_ss': pygame.image.load('images5x8/5x8_lot_3_ss.png'),
+                  'lots_4_ss': pygame.image.load('images5x8/5x8_lot_4_ss.png'),
+                  'lots_5_ss': pygame.image.load('images5x8/5x8_lot_5_ss.png'),
+                  'lots_1_batched': pygame.image.load('images5x8/5x8_lot_1_batched.png'),
+                  'lots_2_batched': pygame.image.load('images5x8/5x8_lot_2_batched.png'),
+                  'lots_3_batched': pygame.image.load('images5x8/5x8_lot_3_batched.png'),
+                  'lots_4_batched': pygame.image.load('images5x8/5x8_lot_4_batched.png'),
+                  'lots_5_batched': pygame.image.load('images5x8/5x8_lot_5_batched.png'),
                   # 'path_L_U_D': pygame.image.load('path_1.png'),
                   # 'path_L_D': pygame.image.load('path_2.png'),
                   # 'path_R_D': pygame.image.load('path_3.png'),
@@ -545,6 +545,7 @@ def start_screen(mapObj):
         DISPLAYSURF.blit(zone_surf, zone_rect)
 
     # Draw borders of zone to the DISPLAYSURF Surface object
+    draw_border_3F(mapObj[0])
     draw_border_3FM(mapObj[1])
     
     while True: # Main loop for the start screen.
@@ -570,20 +571,16 @@ def draw_border_3F(mapObj):
 
     left_blank = (WINWIDTH - mapSurfWidth)/2
 
-    G_topleft = left_blank, WINHEIGHT - 10 - 45 * TILEHEIGHT
-    G_bottomleft = left_blank, WINHEIGHT - 10
-    AR_topleft = left_blank + 11 * TILEWIDTH, WINHEIGHT - 10 - 45 * TILEHEIGHT
-    AR_topright = left_blank + 51 * TILEWIDTH, WINHEIGHT - 10 - 45 * TILEHEIGHT
-    AR_bottomleft = left_blank + 11 * TILEWIDTH, WINHEIGHT - 10 - 36 * TILEHEIGHT
-    AR_bottomright = left_blank + 51 * TILEWIDTH, WINHEIGHT - 10 - 36 * TILEHEIGHT
-    H_topleft = left_blank + 22 * TILEWIDTH, WINHEIGHT - 10 - 36 * TILEHEIGHT
-    H_topright = left_blank + 93 * TILEWIDTH, WINHEIGHT - 10 - 36 * TILEHEIGHT
-    H_bottomleft = left_blank + 22 * TILEWIDTH, WINHEIGHT - 10
-    H_bottomright = left_blank + 93 * TILEWIDTH, WINHEIGHT - 10
-    C_topleft = left_blank + 93 * TILEWIDTH, WINHEIGHT - 10 - 36 * TILEHEIGHT
-    C_topright = left_blank + 150 * TILEWIDTH, WINHEIGHT - 10 - 36 * TILEHEIGHT
-    C_bottomleft = left_blank + 93 * TILEWIDTH, WINHEIGHT - 10
-    C_bottomright = left_blank + 150 * TILEWIDTH, WINHEIGHT - 10
+    G_topleft = left_blank, 60
+    G_bottomleft = left_blank, 60 + 44 * TILEHEIGHT
+    G_topright = left_blank + 8 * TILEWIDTH, 60
+    G_top2right = left_blank + 8 * TILEWIDTH, 60 + 4 * TILEHEIGHT
+    H_topleft = left_blank + 28 * TILEWIDTH, 60 + 4 * TILEHEIGHT
+    H_topright = left_blank + 58 * TILEWIDTH, 60 + 4 * TILEHEIGHT
+    H_bottomleft = left_blank + 28 * TILEWIDTH, 60 + 44 * TILEHEIGHT
+    H_bottomright = left_blank + 58 * TILEWIDTH, 60 + 44 * TILEHEIGHT
+    I_topright = left_blank + 123 * TILEWIDTH, 60 + 4 * TILEHEIGHT
+    I_bottomright = left_blank + 88 * TILEWIDTH, 60 + 44 * TILEHEIGHT
     D_topleft = left_blank + 150 * TILEWIDTH, WINHEIGHT - 10 - 45 * TILEHEIGHT
     D_topright = left_blank + 177 * TILEWIDTH, WINHEIGHT - 10 - 45 * TILEHEIGHT
     D_bottomleft = left_blank + 150 * TILEWIDTH, WINHEIGHT - 10
@@ -593,27 +590,23 @@ def draw_border_3F(mapObj):
     F_bottomleft = left_blank + 207 * TILEWIDTH, WINHEIGHT - 10
     F_bottomright = left_blank + 237 * TILEWIDTH, WINHEIGHT - 10
 
-    pygame.draw.line(DISPLAYSURF, BLUE, A_topleft, AR_topleft)
-    pygame.draw.line(DISPLAYSURF, BLUE, A_topleft, A_bottomleft)
-    pygame.draw.line(DISPLAYSURF, BLUE, A_bottomleft, B_bottomleft)
-    pygame.draw.line(DISPLAYSURF, BLUE, AR_topleft, AR_topright)
-    pygame.draw.line(DISPLAYSURF, BLUE, AR_topleft, AR_bottomleft)
-    pygame.draw.line(DISPLAYSURF, BLUE, AR_bottomleft, B_topleft)
-    pygame.draw.line(DISPLAYSURF, BLUE, AR_topright, AR_bottomright)
-    pygame.draw.line(DISPLAYSURF, BLUE, B_topleft, B_topright)
-    pygame.draw.line(DISPLAYSURF, BLUE, B_topleft, B_bottomleft)
-    pygame.draw.line(DISPLAYSURF, BLUE, B_bottomleft, B_bottomright)
-    pygame.draw.line(DISPLAYSURF, BLUE, C_topleft, C_topright)
-    pygame.draw.line(DISPLAYSURF, BLUE, C_topleft, C_bottomleft)
-    pygame.draw.line(DISPLAYSURF, BLUE, C_bottomleft, C_bottomright)
-    pygame.draw.line(DISPLAYSURF, BLUE, C_topright, C_bottomright)
-    pygame.draw.line(DISPLAYSURF, BLUE, D_topleft, C_topright)
-    pygame.draw.line(DISPLAYSURF, BLUE, D_topleft, F_topright)
-    pygame.draw.line(DISPLAYSURF, BLUE, D_topright, D_bottomright)
-    pygame.draw.line(DISPLAYSURF, BLUE, D_bottomleft, F_bottomright)
-    pygame.draw.line(DISPLAYSURF, BLUE, F_topleft, F_bottomleft)
-    pygame.draw.line(DISPLAYSURF, BLUE, F_bottomleft, F_bottomright)
-    pygame.draw.line(DISPLAYSURF, BLUE, F_topright, F_bottomright)
+    pygame.draw.line(DISPLAYSURF, BLUE, G_topleft, G_topright)
+    pygame.draw.line(DISPLAYSURF, BLUE, G_topleft, G_bottomleft)
+    pygame.draw.line(DISPLAYSURF, BLUE, G_topright, G_top2right)
+    pygame.draw.line(DISPLAYSURF, BLUE, G_top2right, I_topright)
+    pygame.draw.line(DISPLAYSURF, BLUE, H_topleft, H_bottomleft)
+    pygame.draw.line(DISPLAYSURF, BLUE, H_topright, H_bottomright)
+    pygame.draw.line(DISPLAYSURF, BLUE, G_bottomleft, I_bottomright)
+    # pygame.draw.line(DISPLAYSURF, BLUE, C_topleft, C_bottomleft)
+    # pygame.draw.line(DISPLAYSURF, BLUE, C_bottomleft, C_bottomright)
+    # pygame.draw.line(DISPLAYSURF, BLUE, C_topright, C_bottomright)
+    # pygame.draw.line(DISPLAYSURF, BLUE, D_topleft, C_topright)
+    # pygame.draw.line(DISPLAYSURF, BLUE, D_topleft, F_topright)
+    # pygame.draw.line(DISPLAYSURF, BLUE, D_topright, D_bottomright)
+    # pygame.draw.line(DISPLAYSURF, BLUE, D_bottomleft, F_bottomright)
+    # pygame.draw.line(DISPLAYSURF, BLUE, F_topleft, F_bottomleft)
+    # pygame.draw.line(DISPLAYSURF, BLUE, F_bottomleft, F_bottomright)
+    # pygame.draw.line(DISPLAYSURF, BLUE, F_topright, F_bottomright)
 
 def draw_border_3FM(mapObj):
     # draw the border of zones onto the DISPLAYSURF
